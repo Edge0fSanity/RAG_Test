@@ -2,69 +2,69 @@ from query_data import query_rag
 from langchain_community.llms.ollama import Ollama
 
 EVAL_PROMPT = """
-Expected Response: {expected_response}
-Actual Response: {actual_response}
+Ожидаемый ответ: {expected_response}
+Полученный ответ: {actual_response}
 ---
-(Answer only with 'true' or 'false') Does the actual response match the expected response? 
+(Ответьте только "true" или "false") Соответствует ли полученный ответ ожидаемому?
 """
 
 
 
-def benefir_owner():
+def test_benefir_owner():
     assert query_and_validate(
         question="Кто является бенефициарным владельцем Общества «БПС Программные продукты»?",
-        expected_response="Бубнов Дмитрий Владимирович"
+        expected_response="Бубнов Дмитрий Владимирович."
     )
 
-def average_number_of_employees():
+def test_average_number_of_employees():
     assert query_and_validate(
         question="Какая среднесписочная численность работников Общества за 2023 год?",
         expected_response="367 человек"
     )
 
-def share_capital():
+def test_share_capital():
     assert query_and_validate(
         question="Какой размер уставного капитала Общества?",
         expected_response="10 тысяч рублей"
     )
 
-def country_risks():
+def test_country_risks():
     assert query_and_validate(
         question="Какие риски связаны с политической и экономической ситуацией в стране, в которой осуществляет деятельность Общество?",
         expected_response="Страновые и региональные риски, связанные с политической и экономической ситуацией, географическими особенностями, военными конфликтами, введением чрезвычайного положения, забастовками, стихийными бедствиями."
     )
 
-def liquidity_management():
+def test_liquidity_management():
     assert query_and_validate(
         question="Какие меры принимаются Обществом для управления риском ликвидности?",
         expected_response="Общество управляет ликвидностью, поддерживая достаточные остатки денежных средств и кредитных ресурсов, регулярно мониторируя прогнозные и фактические денежные поступления и расходы, осуществляя строгий контроль за погашением дебиторской задолженности покупателями."
     )
 
-def company_activities():
+def test_company_activities():
     assert query_and_validate(
         question="Какие виды деятельности осуществляет Общество «БПС Программные продукты»?",
         expected_response="Разработка компьютерного программного обеспечения, консультационные услуги в данной области и другие сопутствующие услуги."
     )
 
-def accounting_policy_changes():
+def test_accounting_policy_changes():
     assert query_and_validate(
         question="Какие изменения в учетной политике Общества на 2023 год были внесены?",
         expected_response="Изменения в учетной политике на 2023 год отсутствуют."
     )
 
-def previous_director():
+def test_previous_director():
     assert query_and_validate(
         question="Кто руководил Обществом в течение отчетного периода (2022 год) до 07.02.2023?",
         expected_response="Пацианский Олг Владимирович."
     )
 
-def currency_fluctuation_risks():
+def test_currency_fluctuation_risks():
     assert query_and_validate(
         question="Какие риски возникают у Общества в связи с колебанием валютных курсов?",
         expected_response="Возникают большие суммы курсовых разниц, что увеличивает риск неплатежей."
     )
 
-def short_term_liabilities():
+def test_short_term_liabilities():
     assert query_and_validate(
         question="Какие обязательства фиксируются как краткосрочные в бухгалтерском балансе Общества?",
         expected_response="Финансовые вложения, дебиторская и кредиторская задолженность, включая задолженность по кредитам и займам, оценочные обязательства, если срок их обращения (погашения) не превышает 12 месяцев после отчетной даты."
